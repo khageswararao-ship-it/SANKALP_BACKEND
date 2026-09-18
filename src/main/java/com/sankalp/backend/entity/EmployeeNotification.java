@@ -1,5 +1,6 @@
 package com.sankalp.backend.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,15 +14,17 @@ public class EmployeeNotification {
     private Long id;
 
     private String message;
-    private boolean read;
+
+    @Column(name = "is_read")
+    private boolean isRead;
 
     public EmployeeNotification() {
     }
 
-    public EmployeeNotification(Long id, String message, boolean read) {
+    public EmployeeNotification(Long id, String message, boolean isRead) {
         this.id = id;
         this.message = message;
-        this.read = read;
+        this.isRead = isRead;
     }
 
     public Long getId() {
@@ -41,10 +44,10 @@ public class EmployeeNotification {
     }
 
     public boolean isRead() {
-        return read;
+        return isRead;
     }
 
-    public void setRead(boolean read) {
-        this.read = read;
+    public void setRead(boolean isRead) {
+        this.isRead = isRead;
     }
 }
